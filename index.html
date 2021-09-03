@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./Assets/CSS/style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
@@ -30,9 +30,45 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
+      <div class="row justify-content-center">
+        <div class="col-1">
+          <p class="row hour justify-content-right time-negative-3">This is a timestamp</p>
+          <p class="row hour justify-content-right time-negative-2">This is a timestamp</p>
+          <p class="row hour justify-content-right time-negative-1">This is a timestamp</p>
+          <p class="row hour justify-content-right time-current_Time">This is a timestamp</p>
+          <p class="row hour justify-content-right time-1-hour">This is a timestamp</p>
+          <p class="row hour justify-content-right time-2-hour">This is a timestamp</p>
+          <p class="row hour justify-content-right time-3-hour">This is a timestamp</p>
+          <p class="row hour justify-content-right time-4-hour">This is a timestamp</p>
+          <p class="row hour justify-content-right time-5-hour">This is a timestamp</p>
+        </div>
+        <div class="col-10 notes">
+          <p class="row past noteNegative-3">This is a timestamp note</p>
+          <p class="row past noteNegative-2">This is a timestamp note</p>
+          <p class="row past noteNegative-1">This is a timestamp note</p>
+          <p class="row present">This is a timestamp note</p>
+          <p class="row future 1-hourNote">This is a timestamp note</p>
+          <p class="row future 2-hourNote">This is a timestamp note</p>
+          <p class="row future 3-hourNote">This is a timestamp note</p>
+          <p class="row future 4-hourNote">This is a timestamp note</p>
+          <p class="row future 5-hourNote">This is a timestamp note</p>
+        </div>
+        <div class="col-1">
+          <p class="row"><button class="saveBtn btnNegative-3">This is a button</button></p>
+          <p class="row"><button class="saveBtn btnNegative-2">This is a button</button></p>
+          <p class="row"><button class="saveBtn btnNegative-1">This is a button</button></p>
+          <p class="row"><button class="saveBtn present-btn">This is a button</button></p>
+          <p class="row"><button class="saveBtn 1-hourBtn">This is a button</button></p>
+          <p class="row"><button class="saveBtn 2-hourBtn">This is a button</button></p>
+          <p class="row"><button class="saveBtn 3-hourBtn">This is a button</button></p>
+          <p class="row"><button class="saveBtn 4-hourBtn">This is a button</button></p>
+          <p class="row"><button class="saveBtn 5-hourBtn">This is a button</button></p>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="Assets/JS/script.js"></script>
   </body>
 </html>
