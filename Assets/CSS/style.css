@@ -34,6 +34,9 @@ textarea {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  margin-bottom: 0;
+  width: 100%;
+
 }
 
 .hour {
@@ -67,9 +70,19 @@ textarea {
 
 .saveBtn:hover {
   color: #000000;
-  transition: all 0.3s ease-in-out;
+  background-color: aqua;
+  transition: all 0.2s ease-in-out;
 }
 
-.row-bottom-margin {
-  padding-bottom: 0;
+.col-2 {
+  padding: 0px;
+}
+.col-1 {
+  padding: 0px;
+}
+.col-8 {
+  padding: 0px;
+}
+#text {
+  display: none;
 }

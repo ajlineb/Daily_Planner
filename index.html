@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-10" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
@@ -10,8 +10,8 @@
     />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      href="https://use.fontawesome.com/releases/v5.10.1/css/all.css"
+      integrity="sha3104-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK210anvf"
       crossorigin="anonymous"
     />
     <link
@@ -28,32 +28,32 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
+    <div class="container my-5">
       <!-- Timeblocks go here -->
-      <div class="row justify-content-center">
-        <div class="col-1">
-          <p class="row hour justify-content-right time-negative-3">This is a timestamp</p>
-          <p class="row hour justify-content-right time-negative-2">This is a timestamp</p>
-          <p class="row hour justify-content-right time-negative-1">This is a timestamp</p>
-          <p class="row hour justify-content-right time-current_Time">This is a timestamp</p>
-          <p class="row hour justify-content-right time-1-hour">This is a timestamp</p>
-          <p class="row hour justify-content-right time-2-hour">This is a timestamp</p>
-          <p class="row hour justify-content-right time-3-hour">This is a timestamp</p>
-          <p class="row hour justify-content-right time-4-hour">This is a timestamp</p>
-          <p class="row hour justify-content-right time-5-hour">This is a timestamp</p>
+      <div class="row">
+        <!-- <div class="col-1 CTS">
+          <p class="row hour justify-content-right time-negative-3">This is a Loading...</p>
+          <p class="row hour justify-content-right time-negative-2">This is a Loading...</p>
+          <p class="row hour justify-content-right time-negative-1">This is a Loading...</p>
+          <p class="row hour justify-content-right time-current_Time">This is a Loading...</p>
+          <p class="row hour justify-content-right time-1-hour">This is a Loading...</p>
+          <p class="row hour justify-content-right time-2-hour">This is a Loading...</p>
+          <p class="row hour justify-content-right time-3-hour">This is a Loading...</p>
+          <p class="row hour justify-content-right time-4-hour">This is a Loading...</p>
+          <p class="row hour justify-content-right time-5-hour">This is a Loading...</p>
         </div>
-        <div class="col-10 notes">
-          <p class="row past noteNegative-3">This is a timestamp note</p>
-          <p class="row past noteNegative-2">This is a timestamp note</p>
-          <p class="row past noteNegative-1">This is a timestamp note</p>
-          <p class="row present">This is a timestamp note</p>
-          <p class="row future 1-hourNote">This is a timestamp note</p>
-          <p class="row future 2-hourNote">This is a timestamp note</p>
-          <p class="row future 3-hourNote">This is a timestamp note</p>
-          <p class="row future 4-hourNote">This is a timestamp note</p>
-          <p class="row future 5-hourNote">This is a timestamp note</p>
+        <div class="col-10 CTS notes">
+          <input type="text" class="row past noteNegative-3"name="negative-3" readonly>
+          <input type="text" class="row past noteNegative-2"name="negative-2" readonly>
+          <input type="text" class="row past noteNegative-1"name="negative-1" readonly>
+          <input type="text" class="row present textareapresentEntry" name="present" placeholder="Enter Task">
+          <input type="text" class="row future 1-hourNote"name="1-hourNote" placeholder="Enter Task">
+          <input type="text" class="row future 2-hourNote"name="2-hourNote" placeholder="Enter Task">
+          <input type="text" class="row future 3-hourNote"name="3-hourNote" placeholder="Enter Task">
+          <input type="text" class="row future 4-hourNote"name="4-hourNote" placeholder="Enter Task">
+          <input type="text" class="row future 5-hourNote"name="5-hourNote" placeholder="Enter Task">
         </div>
-        <div class="col-1">
+        <div class="col-1 CTS">
           <p class="row"><button class="saveBtn btnNegative-3">This is a button</button></p>
           <p class="row"><button class="saveBtn btnNegative-2">This is a button</button></p>
           <p class="row"><button class="saveBtn btnNegative-1">This is a button</button></p>
@@ -63,7 +63,50 @@
           <p class="row"><button class="saveBtn 3-hourBtn">This is a button</button></p>
           <p class="row"><button class="saveBtn 4-hourBtn">This is a button</button></p>
           <p class="row"><button class="saveBtn 5-hourBtn">This is a button</button></p>
-        </div>
+        </div> -->
+        <div class="col-1 hour time-negative-3">Loading...</div>
+        <input type="text" class="col-10 past noteNegative-3" name="negative-3" readonly>
+        <button class="col-1 saveBtn btnNegative-3">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-negative-2">Loading...</div>
+        <input type="text" class="col-10 past noteNegative-2" name="negative-2" readonly>
+        <button class="col-1 saveBtn btnNegative-2">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-negative-1">Loading...</div>
+        <input type="text" class="col-10 past noteNegative-1" name="negative-1" readonly>
+        <button class="col-1 saveBtn btnNegative-1">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-current_Time">Loading...</div>
+        <input class="col-10 present textareapresentEntry" name="present" placeholder="Enter Task">
+        <button class="col-1 saveBtn present-btn">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-1-hour">Loading...</div>
+        <input class="col-10 future 1-hourNote" name="1-hourNote" placeholder="Enter Task">
+        <button class="col-1 saveBtn 1-hourBtn">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-2-hour">Loading...</div>
+        <input class="col-10 future 2-hourNote" name="2-hourNote" placeholder="Enter Task">
+        <button class="col-1 saveBtn 2-hourBtn">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-3-hour">Loading...</div>
+        <input class="col-10 future 3-hourNote" name="3-hourNote" placeholder="Enter Task">
+        <button class="col-1 saveBtn 3-hourBtn">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-4-hour">Loading...</div>
+        <input class="col-10 future 4-hourNote" name="4-hourNote" placeholder="Enter Task">
+        <button class="col-1 saveBtn 4-hourBtn">Save</button>
+      </div>
+      <div class="row">
+        <div class="col-1 hour time-5-hour">Loading...</div>
+        <input class="col-10 future 5-hourNote" name="5-hourNote" placeholder="Enter Task">
+        <button class="col-1 saveBtn 5-hourBtn">Save</button>
       </div>
     </div>
 
