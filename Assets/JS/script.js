@@ -35,7 +35,7 @@ var btnFutureThreeHr = $(".3-hourBtn");
 var btnFutureFourHr = $(".4-hourBtn");
 var btnFutureFiveHr = $(".5-hourBtn");
 
-console.log(btnOnePastHr);
+console.log(btnPresentHr[0]);
 ///////////////////////////////////////////////////////////////////////////
 
 //sets the times on the left
@@ -49,7 +49,45 @@ function timeStamps(){
     futureThreeHr.text(moment().add(3,"h").format("hh a"));
     futureFourHr.text(moment().add(4,"h").format("hh a"));
     futureFiveHr.text(moment().add(5,"h").format("hh a"));
+};
+
+
+///////////////////////////////////////////////////////////////////////////
+function saveData(hourAhead, hourNote) {
+    var notePresent = hourNote[0].value.trim();
+    //console.log(notePresent);
+    localStorage.setItem(hourAhead, notePresent);
 }
+
+
+///////////////////////////////////////////////////////////////////////////
+
+//eventlisteners
+btnPresentHr[0].addEventListener("click", function() {
+    saveData(0, PresentNote);
+});
+
+btnFutureOneHr[0].addEventListener("click", function() {
+    saveData(1, futureOneHrNote);
+});
+
+btnFutureTwoHr[0].addEventListener("click", function() {
+    saveData(2, futureTwoHrNote);
+});
+
+btnFutureThreeHr[0].addEventListener("click", function() {
+    saveData(3, futureThreeHrNote);
+});
+
+btnFutureFourHr[0].addEventListener("click", function() {
+    saveData(4, futureFourHrNote);
+});
+
+btnFutureFiveHr[0].addEventListener("click", function() {
+    saveData(5, futureFiveHrNote);
+});
 
 //keeps the timestamps updated
 setInterval(timeStamps, 1000);
+
+// make the task have a time hh attached to it if it is equal to the hour timestamp put it there
