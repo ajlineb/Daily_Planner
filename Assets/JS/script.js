@@ -36,6 +36,8 @@ var F5 = document.getElementById("future5");
 //gets the date  places at the top of the page
 var currentDay = document.getElementById("currentDay");
 currentDay.innerHTML = moment().format("dddd, MMMM Do");
+var dayClean = moment().format("HH");
+console.log(dayClean);
 
 //all time values
 var timeValue =[Pa3, Pa2, Pa1, Pre, Fu1, Fu2, Fu3, Fu4, Fu5];
@@ -122,6 +124,10 @@ function saveData(hourAhead, hourNote) {
 
 //places all the notes
 function placeNotes() {
+    //used to clear local storage from the previous day
+    if(dayClean === "00") {
+        localStorage.clear();
+    }
     for(i = 0; i<inputs.length; i++) {
         var timeEl = timeValue[i].innerHTML;
         var inputEl = inputs[i];
