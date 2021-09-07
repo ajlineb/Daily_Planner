@@ -124,10 +124,6 @@ function saveData(hourAhead, hourNote) {
 
 //places all the notes
 function placeNotes() {
-    //used to clear local storage from the previous day
-    if(dayClean === "00") {
-        localStorage.clear();
-    }
     for(i = 0; i<inputs.length; i++) {
         var timeEl = timeValue[i].innerHTML;
         var inputEl = inputs[i];
@@ -146,6 +142,10 @@ function placeNotes() {
 
 //takes notes from the localStorage and places them upon loading the page
 function init_notes(){
+    //used to clear local storage from the previous day
+    if(dayClean === "00") {
+        localStorage.clear();
+    }
     for(i = 0; i<inputs.length; i++) {
         var timeEl = timeValue[i].innerHTML;
         var inputEl = inputs[i];
