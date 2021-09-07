@@ -9,6 +9,7 @@ var futureThreeHr = $(".time-3-hour");
 var futureFourHr = $(".time-4-hour");
 var futureFiveHr = $(".time-5-hour");
 
+//time values
 var Pa3 = document.getElementById("Pa3");
 var Pa2 = document.getElementById("Pa2");
 var Pa1 = document.getElementById("Pa1");
@@ -32,6 +33,10 @@ var F3 = document.getElementById("future3");
 var F4 = document.getElementById("future4");
 var F5 = document.getElementById("future5");
 
+//gets the date  places at the top of the page
+var currentDay = document.getElementById("currentDay");
+currentDay.innerHTML = moment().format("dddd, MMMM Do");
+
 //all time values
 var timeValue =[Pa3, Pa2, Pa1, Pre, Fu1, Fu2, Fu3, Fu4, Fu5];
 
@@ -40,8 +45,6 @@ var inputs = [P3, P2, P1, P, F1, F2, F3, F4, F5];
 
 //all hour stamps in an array
 var times = [threeHrPast, twoHrPast, oneHrPast, present, futureOneHr, futureTwoHr, futureThreeHr, futureFourHr, futureFiveHr];
-
-console.log(inputs[0].value);
 
 //for all the hour notes
 var threeHrPastNote = $(".noteNegative-3");
@@ -54,8 +57,6 @@ var futureThreeHrNote = $(".3-hourNote");
 var futureFourHrNote = $(".4-hourNote");
 var futureFiveHrNote = $(".5-hourNote");
 
-console.log(PresentNote);
-
 //for all buttons
 var btnThreePastHr = $(".btnNegative-3");
 var btnTwoPastHr = $(".btnNegative-2");
@@ -67,7 +68,33 @@ var btnFutureThreeHr = $(".3-hourBtn");
 var btnFutureFourHr = $(".4-hourBtn");
 var btnFutureFiveHr = $(".5-hourBtn");
 
-console.log(btnPresentHr[0]);
+///////////////////////////////////////////////////////////////////////////
+
+// these three sections of code grey out the past buttons and get rid of hover effects
+btnThreePastHr[0].style.backgroundColor = "grey";
+btnThreePastHr[0].disabled = true;
+btnThreePastHr.hover(function(){
+    $(this).css("background-color", "grey");
+    }, function(){
+    $(this).css("color", "white");
+});
+
+btnTwoPastHr[0].style.backgroundColor = "grey";
+btnTwoPastHr[0].disabled = true;
+btnTwoPastHr.hover(function(){
+    $(this).css("background-color", "grey");
+    }, function(){
+    $(this).css("color", "white");
+});
+
+btnOnePastHr[0].style.backgroundColor = "grey";
+btnOnePastHr[0].disabled = true;
+btnOnePastHr.hover(function(){
+    $(this).css("background-color", "grey");
+    }, function(){
+    $(this).css("color", "white");
+});
+
 ///////////////////////////////////////////////////////////////////////////
 
 //sets the times on the left
@@ -81,51 +108,48 @@ function timeStamps(){
     futureThreeHr.text(moment().add(3,"h").format("hh a"));
     futureFourHr.text(moment().add(4,"h").format("hh a"));
     futureFiveHr.text(moment().add(5,"h").format("hh a"));
-    //placeNotes();
 };
 
 
 ///////////////////////////////////////////////////////////////////////////
+
+//saves the info in the text box to the localStorage after clicking the save button
 function saveData(hourAhead, hourNote) {
     var notePresent = hourNote[0].value.trim();
     //console.log(notePresent);
     localStorage.setItem(hourAhead, notePresent);
 }
+
 //places all the notes
 function placeNotes() {
-    for(i=0;i<localStorage.length;i++) {
-        var keyName = localStorage.key(i);
-        //console.log($(present).text());
-        //console.log(localStorage.key(i) + localStorage.getItem(keyName));
-        for(j=0;j<times.length;j++){
-            if(timeValue[j].innerHTML == keyName){
-                inputs[j].value = localStorage.getItem(keyName);
-                //console.log(localStorage.getItem(keyName));
+    for(i = 0; i<inputs.length; i++) {
+        var timeEl = timeValue[i].innerHTML;
+        var inputEl = inputs[i];
+        inputEl.value = '';
+        //console.log(timeEl + " time");
+        for(j=0; j<localStorage.length; j++) {
+            if(timeEl === localStorage.key(j)) {
+                var keyName = localStorage.key(j);
+                //console.log(timeEl + " " + inputEl + " " + keyName);
+                inputEl.value = localStorage.getItem(keyName);
             }
         }
-    }console.log(timeValue[0]);
+    }
 }
 ///////////////////////////////////////////////////////////////////////////
 
-//clears page
+//takes notes from the localStorage and places them upon loading the page
 function init_notes(){
-    placeNotes();
-    for(i=0;i<localStorage.length;i++) {
-        var keyName = localStorage.key(i);
-        //console.log(keyName);
-        for(j=0;j<times.length;j++) {
-            // if($(times[j]).text() == keyName){
-            //     inputs[j].value = localStorage.getItem(keyName);
-            //     console.log(localStorage.getItem(keyName));
-            // };
-            if(timeValue[j].innerHTML != keyName) {
-                inputs[j].value = "";
-                //console.log(keyName);
-                //console.log($(times[j]).text);
+    for(i = 0; i<inputs.length; i++) {
+        var timeEl = timeValue[i].innerHTML;
+        var inputEl = inputs[i];
+        //console.log(timeEl + " time");
+        for(j=0; j<localStorage.length; j++) {
+            if(timeEl === localStorage.key(j)) {
+                var keyName = localStorage.key(j);
+                //console.log(timeEl + " " + inputEl + " " + keyName);
+                inputEl.value = localStorage.getItem(keyName);
             }
-            // if(timeValue[i] != keyName){
-            //     localStorage.removeItem(localStorage.key(i)) = " ";
-            // }
         }
     }
 }
@@ -159,9 +183,6 @@ btnFutureFiveHr[0].addEventListener("click", function() {
 
 //////////////////////////////////////////////////////////////////////////
 
-//keeps the timestamps updated
-
-setInterval(timeStamps, 1000);
-setInterval(placeNotes, 5000);
-init_notes();
-// make the task have a time hh attached to it if it is equal to the hour timestamp put it there
+setTimeout(init_notes, 550); //need this to wait so that the timestamps can be entered and then activate
+setInterval(timeStamps, 500); //updates the timestamps
+setInterval(placeNotes, 10000); //places the notes every 10 seconds, unless the user saves and empty box it will put the last saved value in the box
